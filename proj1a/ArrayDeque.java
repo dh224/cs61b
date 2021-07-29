@@ -27,7 +27,7 @@ public class ArrayDeque<T> {
             a[i++] = items[f++];
         }
         last = size;
-        first = cap - 1;
+        first = capacity - 1;
         items = a;
     }
     //for pass the autograde ;
@@ -75,7 +75,7 @@ public class ArrayDeque<T> {
     }
 
     public int size() {
-        return size();
+        return size;
     }
 
     public void printDeque() {
@@ -93,6 +93,7 @@ public class ArrayDeque<T> {
     }
 
     public T removeFirst() {
+        if(isEmpty()) return null;
         first++;
         if (first >= cap) first = 0;
         T t = items[first];
@@ -106,8 +107,9 @@ public class ArrayDeque<T> {
     }
 
     public T removeLast() {
-        last++;
-        if (last >= cap) last = 0;
+        if(isEmpty()) return null;
+        last--;
+        if (last <0) last = cap -1;
         T t = items[last];
         items[last] = null;
         size--;
