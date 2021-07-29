@@ -114,14 +114,14 @@ public class ArrayDeque<T> {
         items[last] = null;
         size--;
         if (size <= cap * 0.25 && cap >= 16) {
-            resize((int) cap / 2);
-            cap = (int) (cap / 2);
+            resize(cap / 2);
+            cap = (cap / 2);
         }
         return t;
     }
 
     public T get(int index) {
-        int t = index + first;
+        int t = index + first + 1;
         if (t >= cap) {
             t %= cap;
         }
