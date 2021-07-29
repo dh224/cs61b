@@ -53,14 +53,14 @@ public class LinkedListDeque<T> {
     }
     public void printDeque(){
         LinkNode p = sentFirst;
-        while(p.next != sentLast){
+        while (p.next != sentLast){
             System.out.print(p.next.item + " ");
             p = p.next;
         }
         System.out.println();
     }
     public T removeFirst(){
-        if(sentFirst.next == sentLast) return null;
+        if (sentFirst.next == sentLast) return null;
         LinkNode  tN = sentFirst.next;
         T t = tN.item;
         sentFirst.next = tN.next;
@@ -70,7 +70,7 @@ public class LinkedListDeque<T> {
         return t;
     }
     public T removeLast(){
-        if(sentFirst.next == sentLast) return null;
+        if (sentFirst.next == sentLast) return null;
         LinkNode tN = sentLast.prev;
         T t = tN.item;
         sentLast.prev = tN.prev;
@@ -82,20 +82,20 @@ public class LinkedListDeque<T> {
     public T get(int index){
         if (index >= size) return null;
         LinkNode p = sentFirst;
-        while(index-- >= 0){
+        while (index-- >= 0){
             p = p.next;
         }
         return p.item;
     }
     public T getRecursive(LinkNode p, int index){
-        if(index == 0){
+        if (index == 0){
             return p.item;
         }
         return getRecursive(p.next,index -1);
     }
     public T getRecursive(int index){
         LinkNode p = sentFirst;
-        if(p.next == sentLast) return null;
+        if (p.next == sentLast) return null;
         else{
             return getRecursive(p.next,index);
         }
