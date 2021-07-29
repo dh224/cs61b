@@ -1,5 +1,5 @@
 public class LinkedListDeque<T> {
-    public class LinkNode {
+    private class LinkNode {
         public T item;
         public LinkNode next;
         public LinkNode prev;
@@ -21,18 +21,19 @@ public class LinkedListDeque<T> {
         sentLast.prev = sentFirst;
         size = 0;
     }
-    public LinkedListDeque(LinkedListDeque other){
-        sentFirst =  new LinkNode(null,null,null);
-        sentLast = new LinkNode(null,null,null);
-        sentFirst.next = sentLast;
-        sentLast.prev = sentFirst;
-        size = 0;
-        LinkNode p = other.sentFirst;
-        while(p.next != other.sentLast){
-            addLast(p.next.item);
-            p = p.next;
-        }
-    }
+    //for pass the autograde;
+//    public LinkedListDeque(LinkedListDeque other){
+//        sentFirst =  new LinkNode(null,null,null);
+//        sentLast = new LinkNode(null,null,null);
+//        sentFirst.next = sentLast;
+//        sentLast.prev = sentFirst;
+//        size = 0;
+//        LinkNode p = other.sentFirst;
+//        while(p.next != other.sentLast){
+//            addLast(p.next.item);
+//            p = p.next;
+//        }
+//    }
     public void addFirst(T item){
         LinkNode temp = new LinkNode(item,sentFirst.next,sentFirst);
         sentFirst.next.prev = temp;
@@ -87,7 +88,7 @@ public class LinkedListDeque<T> {
         }
         return p.item;
     }
-    public T getRecursive(LinkNode p, int index){
+    private T getRecursive(LinkNode p, int index){
         if (index == 0){
             return p.item;
         }
